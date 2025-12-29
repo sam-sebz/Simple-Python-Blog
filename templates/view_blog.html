@@ -44,7 +44,7 @@
         <small class="text-muted ms-2">• 18 Dec 2025</small>
       </h6>
       <p class="mb-0">
-        This was a very helpful article. The layout explanation was clear 👍
+        {{comment[2]}}
       </p>
     </div>
   </div>
@@ -79,7 +79,7 @@
       <form action="/comment" method="post">
         <div class="mb-3">
           <label class="form-label">Your Name</label>
-          <input type="text" class="form-control"name="name" value="{{session.get('username')}}" placeholder="Enter your name" disabled>
+          <input type="text" class="form-control"name="name" value="{{session.get('user_name')}}" placeholder="Enter your name" disabled>
         </div>
 
         <input type="text" name="blog_id" value="{{blogs[0]}}" hidden>
