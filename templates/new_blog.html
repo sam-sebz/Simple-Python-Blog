@@ -1,0 +1,35 @@
+{% extends "Base.html" %}
+
+{% block title %} index {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+  <h2>Create New Blog</h2>
+
+  <form action="form - insert" method="post">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" value="{{ title or  ''}}"required>
+    </div>
+
+    <div class="mb-3">
+      <button class="btn btn-success" name="action" value="generate">generate</button>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image URL</label>
+      <input type="text" name="image" class="form-control" value="{{ image or  ''}}" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" name="description" rows="6" >{{ description or '' }}</textarea>
+    </div>
+
+    <button class="btn btn-primary" name="action" value="submit" type="submit">Publish</button>
+  </form>
+</div>
+
+{% endblock %}

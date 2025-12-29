@@ -1,0 +1,106 @@
+{% extends "Base.html" %}
+
+{% block title %} index {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+  <h1 class="mb-2">{{blogs[1]}}</h1>
+
+  <p class="text-muted">
+    By <strong>{{blogs[4]}}</strong> • {{blogs[5]}}
+  </p>
+
+  <img src="{{blogs[2]}}" class="img-fluid rounded mb-4">
+
+  <p>
+   {{blogs[3]}}
+  </p>
+
+  <p>
+    You can extend this with comments, likes, and authentication.
+  </p>
+
+  <hr class="my-5">
+
+<div class="comments">
+  <h4 class="mb-4">Comments</h4>
+
+  {%- for comment in comments %}
+
+  <!-- Single Comment -->
+  <div class="d-flex mb-4">
+    <div class="flex-shrink-0">
+      <img
+        src="https://via.placeholder.com/50"
+        class="rounded-circle"
+        alt="User avatar"
+      >
+    </div>
+    <div class="ms-3">
+      <h6 class="mb-0">
+        demo
+        <small class="text-muted ms-2">• 18 Dec 2025</small>
+      </h6>
+      <p class="mb-0">
+        This was a very helpful article. The layout explanation was clear 👍
+      </p>
+    </div>
+  </div>
+
+  {%- endfor %}
+
+  <!-- Single Comment
+  <div class="d-flex mb-4">
+    <div class="flex-shrink-0">
+      <img
+        src="https://via.placeholder.com/50"
+        class="rounded-circle"
+        alt="User avatar"
+      >
+    </div>
+    <div class="ms-3">
+      <h6 class="mb-0">
+        Anjali
+        <small class="text-muted ms-2">• 19 Dec 2025</small>
+      </h6>
+      <p class="mb-0">
+        Would love to see a Laravel Blade version of this blog layout.
+      </p>
+    </div>
+  </div> -->
+
+  <!-- ================= ADD COMMENT ================= -->
+  <div class="card mt-5">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Leave a Comment</h5>
+
+      <form action="/comment" method="post">
+        <div class="mb-3">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-control"name="name" value="{{session.get('username')}}" placeholder="Enter your name" disabled>
+        </div>
+
+        <input type="text" name="blog_id" value="{{blogs[0]}}" hidden>
+        <input type="text" name="user_id" value="{{session.get('user_id')}}" hidden>
+        <div class="mb-3">
+          <label class="form-label">Comment</label>
+          <textarea
+            class="form-control"
+            rows="4"
+            placeholder="Write your comment..."
+            name="comment"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Post Comment
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

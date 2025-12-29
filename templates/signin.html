@@ -1,0 +1,17 @@
+{% extends "Base.html" %}
+
+{% block title %} index {% endblock %}
+
+{% block content %}
+
+<div class="container mt-5" style="max-width: 400px;">
+  <h3 class="mb-3">Sign In</h3>
+
+  <form action="signin" method="post">
+    <input class="form-control mb-3" placeholder="Email" name="email">
+    <input type="password" class="form-control mb-3" placeholder="Password" name="password">
+    <button class="btn btn-primary w-100" type="submit">Login</button>
+  </form>
+</div>
+
+{% endblock %}

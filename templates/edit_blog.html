@@ -1,0 +1,31 @@
+{% extends "Base.html" %}
+
+{% block title %} Edit blog {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+  <h2>Create edit Blog</h2>
+
+  <form action="update_blog/{{blogs[0]}}" method="post">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" value='{{blogs[1]}}' required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image URL</label>
+      <input type="text" name="image" class="form-control" value='{{blogs[2]}}' required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" name="description" rows="6" required>{{blogs[3]}}</textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Publish</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "Base.html" %}
+
+{% block title %} index {% endblock %}
+
+{% block content %}
+
+<!-- BLOG LIST -->
+<div class="container mt-5">
+  {% for blog in blogs %}
+  <!-- Blog Card -->
+  <div class="card mb-4">
+    <div class="row g-0">
+      <!-- Image -->
+      <div class="col-md-4">
+        <img src= "{{blog[2]}}" class="img-fluid h-100 object-fit-cover" alt="Blog image">
+      </div>
+
+      <!-- Content -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">{{blog[1]}}</h4>
+          <p class="card-text text-muted">
+            {{blog[3][:300]}}
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">
+              By <strong>{{blog[4]}}</strong> • {{blog[5]}}
+            </small>
+            <a href="view_blog/{{blog[0]}}" class="btn btn-sm btn-primary">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}
